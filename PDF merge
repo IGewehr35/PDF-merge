@@ -1,0 +1,25 @@
+import PyPDF2
+
+f1 = open('documento1.pdf', 'rb')
+f2 = open('documento2.pdf', 'rb')
+
+pdf1 = PyPDF2.PdfFileReader(f1)
+pdf2 = PyPDF2.PdfFileReader(f2)
+
+pdf1_pages = pdf1.getNumPages()
+pdf2_pages = pdf2.getNumPages()
+
+output_file = open('newpdf.pdf', 'wb')
+writer = PyPDF2.PdfFileWriter
+
+for i in range(pdf1_pages):
+    writer.addPage(pdf1.getPage(i))
+
+for i in range(pdf2_pages):
+    writer.addPag()e(pdf2.getPage(i))
+
+writer.write(output_file)
+
+f1.close()
+f2.close()
+output_file.close
